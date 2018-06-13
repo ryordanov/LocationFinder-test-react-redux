@@ -1,0 +1,70 @@
+{
+  "env": {
+    "es6": true,
+    "node": true,
+    "browser": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended"
+  ],
+  "plugins": [
+    "react"
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "modules": true,
+      "jsx": true
+    },
+    "allowImportExportEverywhere": false,
+    "codeFrame": false
+  },
+  "rules": {
+    "strict": 0,
+    "no-console": "off",
+    "no-trailing-spaces": "error",
+    "react/jsx-uses-vars": "error",
+    "no-alert": 1,
+    "no-debugger": 1,
+    "no-process-env": 2,
+    "no-process-exit": 2,
+    "no-restricted-modules": [
+      2,
+      "express",
+      "underscore",
+      "stream",
+      "wire",
+      "nconf",
+      "superagent",
+      "errno",
+      "marko",
+      "moment"
+    ],
+    "indent": [
+      2,
+      4,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "linebreak-style": ["error", "unix"],
+    "quotes": [
+      "error",
+      "single"
+    ],
+    "semi": [
+      2,
+      "always"
+    ],
+    "space-before-function-paren": [
+      2,
+      "never"
+    ],
+    "react/jsx-indent": 0
+  },
+  "globals": {
+    "isc": true
+  }
+}
