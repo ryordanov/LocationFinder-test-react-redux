@@ -1,4 +1,4 @@
-Building a very simple web-app with React JS 16 + Redux, Bootstrap, Fontawesome Bootstrapcheatsheets and using external API (GMAPS).
+Building a very simple web-app with React JS 16 + Redux, Bootstrap, Fontawesome Bootstrapcheatsheets, Webpack... and using external API (GMAPS).
 
 Running: "npm start"
 
