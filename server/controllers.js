@@ -1,5 +1,6 @@
+const apiKey = 'AIzaSyBmAKa1h-4YENpQiGO_9rJfsS9YIkg6yEY';
 const googleMapsClient = require('@google/maps').createClient({
-    key: 'AIzaSyBmAKa1h-4YENpQiGO_9rJfsS9YIkg6yEY',
+    key: apiKey,
     Promise: Promise
 });
 
@@ -13,7 +14,8 @@ module.exports = {
                 .asPromise()
                 .then((response) => {
                     // console.log(response.json.results);
-                    res.send(response.json.results);
+                    response.json.apiKey = apiKey;
+                    res.send(response.json);
 
                 })
                 .catch((err) => {

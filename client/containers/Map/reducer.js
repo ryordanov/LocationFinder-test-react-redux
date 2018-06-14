@@ -2,7 +2,9 @@ import actionTypes from './actionTypes';
 
 const initialState = {
     actionStatus: 'none',
-    city: 'Shumen'
+    city: 'Shumen',
+    data: {},
+    apiKey: ''
 };
 
 const mapReducer = (state = {...initialState}, action) => {
@@ -15,9 +17,12 @@ const mapReducer = (state = {...initialState}, action) => {
 
         case actionTypes.GET_GEOCODER_DATA:
             if (action.result) {
+                const data = (action.result.results && Array.isArray(action.result.results) ? action.result.results[0] : {})
+                const apiKey = action.result.results.apiKey || '';
                 return {
                     ...state,
-                    data: action.result,
+                    data,
+                    apiKey,
                     actionStatus: 'finished'
                 };
             } else {

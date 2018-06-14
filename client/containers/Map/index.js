@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 
 import { getGeocoderAction } from './actions';
 
-// import MapContainer from './MapContainer';
 import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
 
 class Map extends Component {
@@ -32,13 +31,14 @@ class Map extends Component {
     }
 
     componentDidMount() {
-        const { city } = this.props;
+        const { city, apiKey } = this.props;
+        this._mapParams = {v: '3.exp', key: apiKey};
         this.props.getGeocoderAction({ addr: city });
     }
 
     UNSAFE_componentWillReceiveProps(nextProps) {
-        const location = (nextProps.data && nextProps.data[0] && nextProps.data[0].geometry &&
-            nextProps.data[0].geometry.location) || { lat: 0, lng: 0 };
+        const location = (nextProps.data && nextProps.data.geometry &&
+            nextProps.data.geometry.location) || { lat: 0, lng: 0 };
 
         this.setState({
             lat: location.lat,
@@ -85,6 +85,7 @@ class Map extends Component {
                                     lat={this.state.lat}
                                     lng={this.state.lng}
                                     zoom={10}
+                                    params={this._mapParams}
                                     loadingMessage={'Be happy'}>
                                 </Gmaps>
                             </div>
@@ -94,7 +95,7 @@ class Map extends Component {
                 <div className='row'>
                     <div className='col-12'>
                         <div id='current_location'>
-                            {this.props.data && this.props.data[0] && this.props.data[0].formatted_address}
+                            {this.props.data && this.props.data.formatted_address}
                         </div>
                     </div>
                 </div>
@@ -107,14 +108,16 @@ class Map extends Component {
 
 Map.propTypes = {
     getGeocoderAction: PropTypes.func,
-    data: PropTypes.any,
-    city: PropTypes.string
+    data: PropTypes.object,
+    city: PropTypes.string,
+    apiKey: PropTypes.string
 };
 
 const mapStateToProps = (state, ownProps) => {
     return {
         data: state.mapReducer.data,
-        city: state.mapReducer.city
+        city: state.mapReducer.city,
+        apiKey: state.mapReducer.apiKey
     };
 };
 
