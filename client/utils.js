@@ -1,5 +1,5 @@
-const url = 'http://localhost';
-const port = 9090;
+// const url = 'http://localhost';
+// const port = 9090;
 
 const headers = {
     'Accept': 'application/json',
@@ -8,7 +8,8 @@ const headers = {
 
 export default {
     getGeocoderData: (params) => {
-        let currentUrl = `${url}:${port}/api/getGeocoder`;
+        // let currentUrl = `${url}:${port}/api/getGeocoder`;
+        let currentUrl = '/api/getGeocoder';
         if (params) {
             const key = Object.keys(params)[0];
             const value = params[key];
