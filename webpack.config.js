@@ -10,7 +10,7 @@ module.exports = {
         publicPath: '/public',
         filename: 'bundle.js'
     },
-    watch: true,
+    watch: false,
     watchOptions: {
         aggregateTimeout: 300,
         poll: 1000,
