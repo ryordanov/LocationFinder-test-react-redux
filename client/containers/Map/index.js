@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { getGeocoderAction } from './actions';
 
-import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
+import { Gmaps, Marker, InfoWindow, Circle } from 'react-gmaps';
 
 class Map extends Component {
     constructor(props) {
@@ -31,8 +31,7 @@ class Map extends Component {
     }
 
     componentDidMount() {
-        const { city, apiKey } = this.props;
-        this._mapParams = {v: '3.exp', key: apiKey};
+        const { city } = this.props;
         this.props.getGeocoderAction({ addr: city });
     }
 
@@ -47,7 +46,6 @@ class Map extends Component {
     }
 
     render() {
-        console.log(this.props.data);
         return (
             <div className='container'>
                 <div>
@@ -78,16 +76,16 @@ class Map extends Component {
                     <div className='row'>
                         <div className='col-12'>
                             <div id='map_div'>
-
+                                {this.props.apiKey &&
                                 <Gmaps
                                     // width={'800px'}
                                     height={'270px'}
                                     lat={this.state.lat}
                                     lng={this.state.lng}
                                     zoom={10}
-                                    params={this._mapParams}
+                                    params={{ v: '3.exp', key: this.props.apiKey }}
                                     loadingMessage={'Be happy'}>
-                                </Gmaps>
+                                </Gmaps> }
                             </div>
                         </div>
                     </div>

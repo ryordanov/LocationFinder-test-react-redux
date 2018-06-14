@@ -1,4 +1,4 @@
-const apiKey = 'AIzaSyBmAKa1h-4YENpQiGO_9rJfsS9YIkg6yEY';
+const apiKey = 'AIzaSyBmAKa1h-4YENpQiGO_9rJfsS9YIkg6yEY'; // TODO: get from process.env
 const googleMapsClient = require('@google/maps').createClient({
     key: apiKey,
     Promise: Promise

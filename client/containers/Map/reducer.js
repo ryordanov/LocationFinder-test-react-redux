@@ -18,7 +18,7 @@ const mapReducer = (state = {...initialState}, action) => {
         case actionTypes.GET_GEOCODER_DATA:
             if (action.result) {
                 const data = (action.result.results && Array.isArray(action.result.results) ? action.result.results[0] : {})
-                const apiKey = action.result.results.apiKey || '';
+                const apiKey = action.result.apiKey || '';
                 return {
                     ...state,
                     data,
