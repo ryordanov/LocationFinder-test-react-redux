@@ -10,7 +10,7 @@ module.exports = {
             const key = Object.keys(req.query)[0];
             const value = req.query[key];
 
-            googleMapsClient.geocode({ address: value })
+            googleMapsClient.geocode({ address: value, language: 'bg' })
                 .asPromise()
                 .then((response) => {
                     // console.log(response.json.results);
