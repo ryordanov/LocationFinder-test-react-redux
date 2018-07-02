@@ -26,3 +26,12 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.centered-text {
+  margin: 150px auto;
+}
+
+.centered-text h2 {
+  font: 40px/200px Helvetica, sans-serif;
+  text-align: center;
+}

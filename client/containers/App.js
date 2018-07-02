@@ -1,10 +1,11 @@
 /* eslint linebreak-style: ["error", "unix"] */
 
-import React, { Component } from 'react';
-import { Route, Link } from 'react-router-dom';
+import React, { Component, Fragment } from 'react';
+import { Route, Link, Switch } from 'react-router-dom';
 import Menu from './Menu';
 import Map from './Map/index';
 import Footer from './Footer';
+import About from './About';
 
 // import Home from './Home';
 
@@ -22,15 +23,14 @@ class App extends Component {
 
     render() {
         return (
-            <div>
+            <Fragment>
                 <Menu />
-                <Map />
+                <Switch>
+                    <Route exact path="/" component={Map} />
+                    <Route exact path="/about" component={About} />
+                </Switch>
                 <Footer />
-
-                <main>
-                    {/* <Route exact path="/" component={Home} /> */}
-                </main>
-            </div>
+            </Fragment>
         );
     }
 }

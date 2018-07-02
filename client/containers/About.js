@@ -1,8 +1,11 @@
-import React from 'react'
+import React from 'react';
+import { Link } from 'react-router-dom';
+import style from './App.css'
 
-export default () => (
-  <div>
-    <h1>About Us</h1>
-    <p>Hello Medium!</p>
-  </div>
-)
+const About = () => (
+    <div className='centered-text'>
+        <h2>About</h2>
+    </div>
+);
+
+export default About;
