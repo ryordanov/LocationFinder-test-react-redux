@@ -26,3 +26,13 @@ html, body {
     position: relative;
     border-radius: 2px;
 }
+
+.centered-text {
+    margin: 150px auto;
+}
+  
+.centered-text h2 {
+    font: 40px/200px Helvetica, sans-serif;
+    text-align: center;
+}
+  

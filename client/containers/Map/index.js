@@ -16,6 +16,7 @@ class Map extends Component {
         };
         this.handleClick = this.handleClick.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.changePage = this.changePage.bind(this);
     }
 
     handleClick() {
@@ -45,10 +46,20 @@ class Map extends Component {
         });
     }
 
+    changePage(path) {
+        this.props.history.push({
+            pathname: path
+            // parameters: ''
+        });
+    }
+
     render() {
         return (
             <div className='container'>
                 <div>
+
+                    <button onClick={() => this.changePage('/about')}>Go to About page</button>
+
                     <h1>Your Google Maps Locations</h1>
                     <div className='row'>
                         <div className='col-12'>
@@ -112,6 +123,8 @@ Map.propTypes = {
 };
 
 const mapStateToProps = (state, ownProps) => {
+    console.log('ownProps', ownProps);
+    
     return {
         data: state.mapReducer.data,
         city: state.mapReducer.city,
